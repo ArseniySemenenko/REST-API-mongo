@@ -1,4 +1,4 @@
-#Setup
+# Setup
 npm install
-#Run
+# Run
 npm start
