@@ -10,6 +10,14 @@ class UserService{
         const user = await collection.findOne({_id: id});
         return user;
     }
+    async createUser(user){
+        const newUser = await collection.insertOne(user);
+        return newUser;
+    }
+    async deleteUser(id){
+        const user = await collection.deleteOne({_id: id});
+        return user;
+    }
 }
 
 module.exports = new UserService;

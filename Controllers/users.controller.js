@@ -11,6 +11,16 @@ class UserController{
         const user = await service.getUser(id);
         res.status(200).json(user);
     }
+    async createUser(req , res){
+        const user = req.body;
+        const newUser = await service.createUser(user);
+        res.status(201).json(newUser);
+    }
+    async deleteUser(req, res){
+        const id = new ObjectId(req.params.id);
+        const user = await service.deleteUser(id);
+        res.status(200);
+    }
 }
 
 module.exports = new UserController;
