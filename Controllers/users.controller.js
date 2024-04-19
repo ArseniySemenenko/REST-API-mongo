@@ -21,6 +21,12 @@ class UserController{
         const user = await service.deleteUser(id);
         res.status(200);
     }
+    async updateUser(req , res){
+        const id = new ObjectId(req.params.id);
+        const user = req.body;
+        const updatedUser = await service.updateUser(id , user);
+        res.status(200).json(updatedUser);
+    }
 }
 
 module.exports = new UserController;

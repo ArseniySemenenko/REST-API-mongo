@@ -18,6 +18,10 @@ class UserService{
         const user = await collection.deleteOne({_id: id});
         return user;
     }
+    async updateUser(id , user){
+        const updatedUser = await collection.findOneAndUpdate({_id: id} , {$set: {name: user.name , password: user.password}}, { returnDocument: "after" });
+        return updatedUser;
+    }
 }
 
 module.exports = new UserService;
